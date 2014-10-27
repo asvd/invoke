@@ -206,7 +206,7 @@ callback).
 
 --
 
-You can find me on twitter: [https://twitter.com/asvd0](https://twitter.com/asvd0)
+Follow me on twitter: [https://twitter.com/asvd0](https://twitter.com/asvd0)
 
 Also check out some of my other projects on github (ordered by my
 personal impression of their significance):
