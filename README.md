@@ -93,7 +93,7 @@ Install `invoke-server` using `npm`:
 $ npm install invoke-server
 ```
 
-and then load the library:
+Load the library:
 
 ```js
 var invoke = require('invoke-server');
@@ -106,7 +106,7 @@ Optionally you may load the script from the
 var invoke = require('path/to/invoke-server.js');
 ```
 
-Then create a script which starts the server and exposes the needed
+Create a script which starts the server and exposes the needed
 functions:
 
 ```js
@@ -129,8 +129,7 @@ server.expose({
 ```
 
 `Server` object constructor argument is an optional port number
-(defaults to 80). The mentioned `expose()` method takes an object
-containing a list of functions to be provided to the browser.
+(defaults to 80).
 
 Finally save the file and launch it using Node.js:
 
@@ -139,7 +138,8 @@ $ node server.js
 ```
 
 In order to close the server programmatically, use `close()`
-method. The provided callback is invoked when connection is closed:
+method. The provided callback is invoked after the connection is
+closed:
 
 ```js
 server.close(cb);
@@ -151,18 +151,15 @@ server.close(cb);
 
 ##### Client (browser)
 
-Download the
-[distribution](https://github.com/asvd/invoke/releases/download/v0.1.0/invoke-0.1.0.tar.gz),
+Download the [client-side
+library](https://github.com/asvd/invoke/releases/download/v0.1.0/invoke-0.1.0.tar.gz),
 unpack it and load the `invoke.js` in a preferrable way. That is an
 UMD module, thus for instance it may simply be loaded as a plain
 JavaScript file using the `<script>` tag:
 
-
 ```html
 <script type="text/javascript" src="invoke/invoke.js"></script>
 ```
-
-After loading the library, the `invoke` object is created.
 
 To connect to a host running an invoke-server, create a `Host`
 instance:
@@ -194,14 +191,16 @@ connection to the server could not be established. Just like as for
 times or even after the event has actually been fired.
 
 
-Normally the exposed function takes a callback (or sereval callbacks)
+Normally an exposed function takes a callback (or sereval callbacks)
 in order to report the result. If no callbacks are provided upon the
 function call, the responce is sent immediately. Otherwise the
-response is only sent when an exposed function invokes a callback.
+response is only sent when an exposed function invokes a callback on
+the server side.
 
-If a problem happened during the exposed function execution, the error
-is sent as a responce and provided as an argument to the last callback
-on the arguments list (which is assumed to be the failure callback).
+If a problem has occured during the exposed function execution, the
+error is sent in a responce and provided as an argument to the last
+callback on the arguments list (which is assumed to be the failure
+callback).
 
 
 
@@ -210,7 +209,7 @@ on the arguments list (which is assumed to be the failure callback).
 You can find me on twitter: [https://twitter.com/asvd0](https://twitter.com/asvd0)
 
 Also check out some of my other projects on github (ordered by my
-impression of their significance):
+personal impression of their significance):
 
 [Helios Kernel](https://github.com/asvd/helios-kernel): isomorphic javascript module loader
 
