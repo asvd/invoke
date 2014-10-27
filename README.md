@@ -33,7 +33,7 @@ server.expose({
 
 ```js
 // connecting to the server
-var host = new invoke.Host('http://127.0.0.1:1377/');
+var host = new invoke.Host('http://127.0.0.1:1337/');
 
 var start = function() {
     // functions exposed by the server are available at host.api
@@ -169,7 +169,7 @@ To connect to a host running an invoke-server, create a `Host`
 instance:
 
 ```js
-var host = new invoke.Host('http://127.0.0.1:1377/');
+var host = new invoke.Host('http://127.0.0.1:1337/');
 
 var start = function() {
     // using functions provided by the server
