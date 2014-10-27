@@ -8,7 +8,7 @@ $ node server/tests.js
 ```
 
 It will perform several tests, and then start waiting until the
-borwser to be connected.
+borwser is connected.
 
 Next, open `client/index.html` in the web-browser. The tests for the
 server and the browser will then continue together.
