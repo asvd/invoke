@@ -210,7 +210,8 @@ on the arguments list (which is assumed to be the failure callback).
 
 You can find me on twitter: [https://twitter.com/asvd0](https://twitter.com/asvd0)
 
-Also check out some of my projects on github (ordered by my impression of their significance):
+Also check out some of my other projects on github (ordered by my
+impression of their significance):
 
 [Helios Kernel](https://github.com/asvd/helios-kernel): isomorphic javascript module loader
 
