@@ -1,10 +1,10 @@
 Invoke
 ======
 
-Invoke is an exeprimental http-server and a browser library,
+Invoke is an exeprimental http-server and a browser library
 dramatically simplifying client-server communication to a function
-call. That is literally: declare a function on a server, then
-directly use it in a browser:
+call. That is literally: declare a function on a server, then directly
+use it in a browser:
 
 *Server (Node.js):*
 
