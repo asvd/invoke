@@ -14,7 +14,7 @@ var invoke = require('invoke-server');
 // starting a server on port 1337
 var server = new invoke.Server(1337);
 
-// a set of functions to be available from the browser
+// a set of functions available to the browser
 server.expose({
     // prints a message on the server console
     log: console.log,
@@ -54,15 +54,14 @@ host.whenConnected(start);
 
 ### What's happening?
 
-A list of exposed functions names is provided to the browser upon
-connection. For each exposed function name, the browser library
-creates a special wrapper. Upon being called, the wrapper serializes
-the provided arguments into a JSON-string, and performs an ordinary
-request to the server. The server in turn rebuilds a list of
-arguments, and calls the actual function. If that function then
-executes a callback, a responce is sent in the opposite direction,
-which finally leads to an actual callback execution (preserved in
-advance before sending the request).
+A list of exposed function names is provided to the browser upon
+connection. For each exposed function browser then creates a wrapper
+under the same name. Upon being called, the wrapper serializes the
+provided arguments into a JSON-string, and performs an ordinary
+request to the server, which in turn rebuilds a list of arguments, and
+calls the actual function. A callback invoked by that function leads
+to a responce sent back to the browser, which finally calls the actual
+callback (preserved in advance when sending the request).
 
 The messaging mechanism reused beyond the remote function invocation
 introduces some natural limitations for the exposed functions and
