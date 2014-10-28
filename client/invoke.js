@@ -32,6 +32,17 @@
         this._listeners = [];
         this._result = [];      // args to transfer to the listener
     }
+      
+      
+    /**
+     * @returns {Function} whenable subscriber to the event
+     */
+    Whenable.prototype.getSubscriber = function() {
+        var me = this;
+        return function(listener) {
+            me._whenEmitted(listener);
+        }
+    }
 
       
     /**
@@ -40,7 +51,7 @@
      * @param {Function} func listener function to subscribe
      * @param {Object} ctx optional context to call the listener in
      */
-    Whenable.prototype.whenEmitted = function(func, ctx){
+    Whenable.prototype._whenEmitted = function(func, ctx){
         func = this._checkListener(func);
         if (this._emitted) {
             this._invoke(func, ctx, this._result);
@@ -107,7 +118,8 @@
             }
         }
     }
-
+      
+      
       
     /**
      * Creates a new Host object, represents a connection to a single
@@ -118,29 +130,14 @@
     var Host = function(url) {
         this.api = {};
         this._url = url;
+
         this._connection = new Whenable;
+        this.whenConnected = this._connection.getSubscriber();
+
         this._failure = new Whenable;
+        this.whenFailed = this._failure.getSubscriber();
+
         this._connect();
-    }
-      
-      
-    /**
-     * Whenable-style subscriber to the connection event
-     * 
-     * @param {Function} listener to subscribe
-     */
-    Host.prototype.whenConnected = function(listener) {
-        this._connection.whenEmitted(listener);
-    }
-      
-      
-    /**
-     * Whenable-style subscriber to the connection failure event
-     * 
-     * @param {Function} listener to subscribe
-     */
-    Host.prototype.whenFailed = function(listener) {
-        this._failure.whenEmitted(listener);
     }
       
       

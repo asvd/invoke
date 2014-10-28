@@ -1,6 +1,6 @@
 
 var invoke = require('../../server/invoke-server.js');
-require('./lighttest.js');
+require('../lighttest.js');
 
 var tests = {
     'Initialization':
