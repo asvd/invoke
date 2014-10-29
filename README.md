@@ -58,10 +58,10 @@ A list of exposed function names is provided to the browser upon
 connection. For each exposed function browser then creates a wrapper
 under the same name. Upon being called, the wrapper serializes the
 provided arguments into a JSON-string, and performs an ordinary
-request to the server, which in turn rebuilds a list of arguments, and
-calls the actual function. A callback invoked by that function leads
-to a responce sent back to the browser, which finally calls the actual
-callback (preserved in advance when sending the request).
+request to the server, which in turn rebuilds the arguments, and calls
+the actual function. A callback invoked by that function similarly
+leads to a responce sent back to the browser, which finally calls the
+actual callback (preserved in advance when sending the request).
 
 The messaging mechanism reused beyond the remote function invocation
 introduces some natural limitations for the exposed functions and
@@ -211,9 +211,13 @@ Follow me on twitter: [https://twitter.com/asvd0](https://twitter.com/asvd0)
 Also check out some of my other projects on github (ordered by my
 personal impression of their significance):
 
-[Helios Kernel](https://github.com/asvd/helios-kernel): isomorphic javascript module loader
+[Helios Kernel](https://github.com/asvd/helios-kernel): isomorphic
+javascript module loader
 
-[Jailed](https://github.com/asvd/jailed): sandboxed execution of untrusted code
+[Jailed](https://github.com/asvd/jailed): sandboxed execution of
+untrusted code (with the similar killer feature to export a set of
+functions into the sandbox)
 
-[Lighttest](https://github.com/asvd/lighttest): isomorphic unit-testing library
+[Lighttest](https://github.com/asvd/lighttest): isomorphic
+unit-testing library
 

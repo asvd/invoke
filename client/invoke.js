@@ -132,9 +132,9 @@
         this._url = url;
 
         this._connection = new Whenable;
-        this.whenConnected = this._connection.getSubscriber();
-
         this._failure = new Whenable;
+
+        this.whenConnected = this._connection.getSubscriber();
         this.whenFailed = this._failure.getSubscriber();
 
         this._connect();
